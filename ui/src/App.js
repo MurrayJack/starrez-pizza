@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import logo from './assets/IMG_0198.JPG';
+import logo from './assets/pizza.jpg';
 import './App.css';
+import "react-image-gallery/styles/css/image-gallery.css";
+import Images from './Images';
 
 const styles = {
     position: "fixed",
@@ -21,14 +23,22 @@ const labels = {
     color: "white",
 }
 
+const ImagesWrapper = {
+    width: "400px",
+    margin: "0 auto",
+}
+
 class App extends Component {
     render() {
         return (
             <div className="App">
                 <img style={styles} src={logo} />
                 <div style={labels} >
-                    <h1>Coming Soon</h1>
+                    <h1>TODAY!</h1>
                     <p>Alan Knipe: Innovation Day 2019</p>
+                    <div style={ImagesWrapper}>
+                        <Images />
+                    </div>
                 </div>
             </div>
         );
