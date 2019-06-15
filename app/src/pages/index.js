@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Information from "../components/information";
+import ImageButton from "../components/imageButton";
 
 const IndexPage = ({ data }) => {
   const [showInfo, setShowInfo] = useState({ Visible: false, ID: undefined });
@@ -11,11 +12,7 @@ const IndexPage = ({ data }) => {
 
     <div className="container">
       {data.allSanityImages.edges.map(e => <div className="card">
-        {e.node.image.asset &&
-          <button type="button" onClick={() => setShowInfo({Visible: true, ID: e.node._id })}>
-            <img alt="pizza" src={e.node.image.asset.url} />
-          </button>
-        }
+        {e.node.image.asset && <ImageButton OnClick={() => setShowInfo({ Visible: true, ID: e.node._id })} URL={e.node.image.asset.url}/> }
       </div>)}
 
       <Information OnClose={() => setShowInfo({ Visible: false })} Visible={showInfo.Visible} ID={showInfo.ID} /> 
