@@ -9,6 +9,11 @@ export default {
             type: 'string'
         },
         {
+            name: 'madefor',
+            title: 'Made For',
+            type: 'string'
+        },
+        {
             name: 'image',
             title: 'Image',
             type: 'image'
@@ -17,18 +22,12 @@ export default {
             name: 'ingredients',
             title: 'Ingredients',
             type: 'array',
-            of: [{type: 'string'}],
-            options: {
-                list: [
-                  {title: 'Mushrooms', value: 'mushrooms'},
-                  {title: 'Red Peppers', value: 'redpeppers'},
-                  {title: 'Green Peppers', value: 'greenpepers'},
-                  {title: 'Shaved Ham', value: 'shavedham'},
-                  {title: 'Basil', value: 'basil'},
-                  {title: 'Ricotta', value: 'ricotta'},
-                  {title: 'Tomato', value: 'tomato'},
-                ]
-              }
+            of: [
+                {
+                    type: 'reference',
+                    to: [{ type: 'ingredients' }]
+                }
+            ],
         },
     ],
 }

@@ -2,12 +2,21 @@ html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  background-color: #2d2d2d;
+  background-color:#f5f6fa;
 }
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  background-color: #2f3640;
 }
 article,
 aside,
@@ -642,4 +651,4 @@ pre tt:after {
   object-position: center;
   object-fit: contain;
   height: 300px;
-}
+} */
