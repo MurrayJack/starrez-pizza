@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Information from "../components/information";
 import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-link-http';
@@ -30,8 +29,6 @@ const IndexPage = ({ data }) => {
             <ApolloProvider client={client}>
 
                 <PictureStudio onClick={(id) => setShowInfo({ Visible: true, ID: id })} />
-
-                {/* <Information OnClose={() => setShowInfo({ Visible: false })} Visible={showInfo.Visible} ID={showInfo.ID} /> */}
 
             </ApolloProvider>
         </Layout>

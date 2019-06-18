@@ -4,9 +4,11 @@ import createSchema from 'part:@sanity/base/schema-creator'
 // Then import schema types from any plugins that might expose them
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
-import pizza from "./pizzaimages";
+import pizza from "./pizzaimage";
 import team from "./team";
-import ing from "./ingredients";
+import ing from "./ingredient";
+import event from "./event";
+import recipe from "./recipe";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -18,6 +20,8 @@ export default createSchema({
     /* Your types here! */
     pizza,
     team,
-    ing
+    ing,
+    event,
+    recipe
   ])
 })

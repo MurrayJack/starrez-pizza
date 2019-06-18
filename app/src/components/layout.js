@@ -4,6 +4,7 @@ import { StaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import "./layout.css"
 import styled from "styled-components";
+import { Link } from "gatsby"
 
 const StyledArticle = styled.article`
     display: grid;
@@ -12,8 +13,23 @@ const StyledArticle = styled.article`
 `;
 
 const StyledAside = styled.aside`
-    padding: 10px;
+    padding: 10px 20px;
 `;
+
+const StyledMenu = styled.div`
+    position: fixed;
+`
+
+const StyledUL = styled.ul`
+    list-style: none;
+    padding: 0;
+    margin: 0;
+`;
+
+const StyledLI = styled.li`
+    line-height: 30px;
+`;
+
 
 const Layout = ({ children }) => (
     <StaticQuery
@@ -23,6 +39,12 @@ const Layout = ({ children }) => (
                     siteMetadata {
                         title
                     }
+                }
+
+                allSanityEvent {
+                    nodes {
+                        name
+                    }   
                 }
 
                 allSanityTeam {
@@ -38,10 +60,19 @@ const Layout = ({ children }) => (
                 <StyledArticle>
 
                     <StyledAside>
-                        <h2>The Team</h2>
-                        <ul>
-                            {data.allSanityTeam.nodes.map((e) => <li>{e.name}</li>)}
-                        </ul>
+                        <StyledMenu>
+                            <h2>The Team</h2>
+                            <StyledUL>
+                                {data.allSanityTeam.nodes.map((e) => <StyledLI>{e.name}</StyledLI>)}
+                            </StyledUL>
+
+                            <h2>Events</h2>
+                            <StyledUL>
+                                <li>
+                                    {data.allSanityEvent.nodes.map((e) => <StyledLI>{e.name}</StyledLI>)}
+                                </li>
+                            </StyledUL>
+                        </StyledMenu>
                     </StyledAside>
                     <main>{children}</main>
                 </StyledArticle>

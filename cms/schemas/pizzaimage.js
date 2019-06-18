@@ -29,5 +29,11 @@ export default {
                 }
             ],
         },
+        {
+            name: 'event',
+            title: 'Event',
+            type: 'reference',
+            to: [{ type: 'event' }]
+        },
     ],
 }

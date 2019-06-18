@@ -1,7 +1,6 @@
 import React from "react";
-import { Query } from "react-apollo";
-import gql from "graphql-tag";
 import styled from 'styled-components'
+import { StaticQuery, graphql } from "gatsby"
 
 const StyledWrapper = styled.div`
     position: fixed;
@@ -11,9 +10,10 @@ const StyledWrapper = styled.div`
     right: 0;
     bottom: 0;
     opacity: 0;
+    pointer-events: none;
 
     [aria-hidden='true'] {
-        opacity: 1;
+        /* opacity: 1; */
     }
 `;
 
@@ -29,53 +29,31 @@ const StyledInfo = styled.div`
 
 
 const Information = ({ Visible, ID, OnClose }) => {
-    const query = gql`
-    {
-        Images(id: "${ID}" )
-        {
-            description
-            ingredients 
-            {
-                name
-            }
-        }
-    }
-    `;
-
     return (
-        <Query query={query}>
-            {({ loading, error, data }) => {
-                return (
-                    <StyledWrapper aria-hidden={Visible} onClick={OnClose}>
-                        <StyledInfo aria-hidden={Visible}>
-                            <h3>Description</h3>
-                            <p>
+        <StaticQuery
+            query={graphql`
+                {
+                    sanityImages(_id: {eq: "" }) {
+                    event {
+                        id
+                    }
+                }
+            }
+            
+        `}
+            render={data => (
+                <StyledWrapper aria-hidden={Visible} onClick={OnClose}>
+                    <StyledInfo aria-hidden={Visible}>
+                        <h3>Description</h3>
+                        <p>
 
-                            </p>
-                            <hr/>
+                        </p>
+                        <hr />
 
 
-                        </StyledInfo>
-                        {/* <div aria-hidden={Visible}>
-                                <h3>Description</h3>
-                                <p>{data.Images.description}</p>
-
-                                <hr />
-
-                                <h3>Ingredients</h3>
-                                <ul>
-                                    {data.Images.ingredients.map(e => <li>{e.name}</li>)}
-                                </ul>
-
-                                <hr />
-
-                                <h3>Made For</h3>
-                                <p>asdsad</p>
-                            </div> */}
-                    </StyledWrapper>
-                )
-            }}
-        </Query>
+                    </StyledInfo>
+                </StyledWrapper>
+            )} />
     )
 }
 export default Information
