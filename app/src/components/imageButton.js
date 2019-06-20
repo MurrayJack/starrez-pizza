@@ -9,11 +9,6 @@ const StyledButton = styled.div`
     margin: 0;
     overflow: hidden;
     position: relative;
-    transition: all ease-in-out 0.25s;
-
-    &.initial {
-        background-color: red;
-    }
 `;
 
 const StyledImg = styled.img`
@@ -39,11 +34,33 @@ const StyledCaption = styled.div`
     align-items: center;
 `
 
+const StyledHover = styled.div`
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+    letter-spacing: 0.45px;
+    color: white;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 14px;
+    text-align: center;
+    display: grid;
+    align-items: center;
+    opacity: 0;
+    transition: all ease-in-out 0.25s;
+    padding: 0 10px;
+
+    &:hover {
+        opacity: 1;
+    }
+`
+
 const ImageButton = ({ URL, OnClick, IsLarge, Caption }) => {
     return (
-        <StyledButton className={IsLarge && "initial"} type="button" onClick={OnClick}>
+        <StyledButton className={IsLarge && "initial"}>
             <StyledImg alt="pizza" src={URL} />
-            {IsLarge && <StyledCaption>{Caption}</StyledCaption>}
+            {IsLarge ? <StyledCaption>{Caption}</StyledCaption> : <StyledHover>{Caption}</StyledHover>}
         </StyledButton>);
 }
 

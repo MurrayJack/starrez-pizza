@@ -22,6 +22,7 @@ const PictureStudio = ({ onClick }) => {
                 {
                     allSanityImages {
                         nodes {
+                            description
                             image {
                                 asset {
                                     url
@@ -33,12 +34,18 @@ const PictureStudio = ({ onClick }) => {
         `}
             render={data => (
                 <StyledWrapper>
-                    {data.allSanityImages.nodes.map((e, i) => 
-                        <ImageButton 
-                            key={i} 
-                            IsLarge={i == 0}
-                            Caption="Innovation Day 2019"
-                            OnClick={() => onClick(e._id)} URL={e.image.asset.url} 
+                    <ImageButton
+                        IsLarge={true}
+                        Caption="Innovation Day: 2019"
+                        URL={data.allSanityImages.nodes[0].image.asset.url}
+                    />
+
+                    {data.allSanityImages.nodes.map((e, i) =>
+                        <ImageButton
+                            key={i}
+                            OnClick={() => onClick(e._id)}
+                            Caption={e.description}
+                            URL={e.image.asset.url}
                         />)}
                 </StyledWrapper>
             )} />

@@ -11,7 +11,7 @@
     "test": "sanity check"
   },
   "keywords": [
-    "sanity"
+    "pizza"
   ],
   "dependencies": {
     "@sanity/base": "^0.140.33",

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { ApolloClient } from 'apollo-client';
@@ -20,15 +20,13 @@ const client = new ApolloClient({
 })
 
 const IndexPage = ({ data }) => {
-    const [showInfo, setShowInfo] = useState({ Visible: false, ID: undefined });
-
     return (
         <Layout>
             <SEO title="Home" />
 
             <ApolloProvider client={client}>
 
-                <PictureStudio onClick={(id) => setShowInfo({ Visible: true, ID: id })} />
+                <PictureStudio />
 
             </ApolloProvider>
         </Layout>

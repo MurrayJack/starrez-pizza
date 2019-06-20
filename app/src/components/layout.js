@@ -4,7 +4,6 @@ import { StaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import "./layout.css"
 import styled from "styled-components";
-import { Link } from "gatsby"
 
 const StyledArticle = styled.article`
     display: grid;
