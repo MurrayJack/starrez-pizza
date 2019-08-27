@@ -34,13 +34,10 @@ module.exports = {
         dataset: 'production',
         watchMode: true,
         overlayDrafts: true,
-        // a token with read permissions is required
-        // if you have a private dataset
-        token: "skmAOwWFmOJp4tOgXOQA6ORxewtV255WyXz6k3TW9iaeqiThEqtFAzwgPbN3Xd3SN41Xbt439q57wK4su9aitXM8f4WAFaFgzUdESAXnO0ahMUtHwNL3xBkmBTE8FNRPx8EF3LGFJQYi4nswZoKNIGI93Fn2u7cbLry02e1w7KuSBYNrS3H2",
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    `gatsby-plugin-offline`,
+    // `gatsby-plugin-offline`,
   ],
 }
